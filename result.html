@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmotionSense - Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>EmotionSense Result</h1>
+        
+        <div class="result-card">
+            <h2>Hello, {{ name }}!</h2>
+            <p>Your text: "{{ text }}"</p>
+            
+            <div class="sentiment-result {{ sentiment }}">
+                <h3>Detected Sentiment: {{ sentiment.capitalize() }}</h3>
+                <div class="emoji">
+                    {% if sentiment == 'happy' %}
+                    😊
+                    {% elif sentiment == 'sad' %}
+                    😔
+                    {% else %}
+                    😐
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        
+        <a href="/" class="back-button">Try Another</a>
+    </div>
+</body>
+</html> 
